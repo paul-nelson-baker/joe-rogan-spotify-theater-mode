@@ -1,0 +1,14 @@
+.VideoPlayer video, .VideoPlayer--landscape {
+  width: 100vw !important;
+}
+
+div[data-testid="video-player"] {
+  top: 125px !important;
+  bottom: initial !important;
+  left: 0px !important;
+  z-index: 100;
+}
+
+nav.Root__nav-bar, div.Root__main-view {
+  filter: brightness(10%);
+}
