@@ -19,20 +19,50 @@
   // }();
   // console.log('loaded ext css', theaterModeCSS);
   const theaterModeCSS = `
-  .VideoPlayer video, .VideoPlayer--landscape {
-    width: 100vw !important;
-  }
-  
-  div[data-testid="video-player"] {
-    top: 125px !important;
-    bottom: initial !important;
-    left: 0px !important;
-    z-index: 100;
-  }
-  
   nav.Root__nav-bar, div.Root__main-view {
     filter: brightness(10%);
-  }`;
+  }
+  
+  @media only screen and (max-width: 960px) {
+    .VideoPlayer video, .VideoPlayer--landscape {
+      width: 100vw !important;
+    }
+
+    div[data-testid="video-player"] {
+      top: 125px !important;
+      bottom: initial !important;
+      left: 0px !important;
+      z-index: 100;
+    }
+  }
+
+  @media only screen and (min-width: 961px) and (max-width: 1280px) {
+    .VideoPlayer video, .VideoPlayer--landscape {
+      width: 100vw !important;
+    }
+
+    div[data-testid="video-player"] {
+      top: 0px !important;
+      bottom: initial !important;
+      left: 0px !important;
+      z-index: 100;
+    }
+  }
+
+  @media only screen and (min-width: 1281px) {
+    .VideoPlayer video, .VideoPlayer--landscape {
+      width: 100vw !important;
+      max-height: 85vh;
+    }
+
+    div[data-testid="video-player"] {
+      top: 0px !important;
+      bottom: initial !important;
+      left: 0px !important;
+      z-index: 100;
+    }
+  }
+  `;
 
   const $jq = jQuery.noConflict();
   const theaterModeID = 'jr-theater-mode';
