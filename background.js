@@ -69,6 +69,12 @@
   const theaterModeElement = $jq(`<style id='${theaterModeID}'>${theaterModeCSS}</style>`);
   console.log('Generated CSS element', theaterModeElement);
 
+  const checkIsJRE = () => {
+    const jreLink = $jq('.now-playing a').filter((_, item) => { return $jq(item).text() === "The Joe Rogan Experience"; });
+    console.log(jreLink);
+    return jreLink.length > 0;
+  };
+
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (!mutation.addedNodes) {
@@ -80,6 +86,10 @@
         const node = mutation.addedNodes[i];
         if (node.nodeName.toLowerCase() === videoTag) {
           $jq(videoTag).on('play', () => {
+            if (!checkIsJRE()) {
+              console.log('not on JRE video, leaving things as-is to preserve current functionality');
+              return;
+            }
             console.log('injecting theater css');
             $jq('head').append(theaterModeElement);
           });
