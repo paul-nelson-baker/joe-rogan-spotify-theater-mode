@@ -23,5 +23,9 @@
         "background.js"
       ]
     }
-  ]
+  ],
+  "icons": {
+    "512": "icon512.png",
+    "128": "icon128.png"
+  }
 }
